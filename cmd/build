@@ -1,0 +1,5 @@
+#!/bin/bash
+
+BUILD_CMD="node_modules/.bin/elm make src/Main.elm --output=docs/compiled-js/elm.js"
+
+exec $BUILD_CMD

@@ -1,0 +1,6 @@
+# automatic folders
+node_modules
+elm-stuff
+
+# compiled file
+docs/compiled-js
