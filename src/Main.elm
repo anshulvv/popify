@@ -3,8 +3,7 @@ module Main exposing (..)
 import Browser
 import Element exposing (Attribute, Element)
 import Element.Background
-import Html exposing (Html)
-import Html.Attributes
+import Html
 import Html.Events
 import Popify
 
