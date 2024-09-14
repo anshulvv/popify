@@ -1,11 +1,13 @@
 module Main exposing (..)
 
 import Browser
-import Element exposing (Attribute, Element)
+import Element exposing (Attribute, Element, fill, minimum, width)
 import Element.Background
-import Html
+import Element.Border
+import Html.Attributes
 import Html.Events
 import Popify
+import Popify.Msg
 
 
 main : Program () Model Msg
@@ -19,7 +21,7 @@ main =
 
 
 type Msg
-    = PopifyMsg Popify.Msg
+    = PopifyMsg Popify.Msg.Msg
 
 
 type alias Model =
@@ -29,7 +31,7 @@ type alias Model =
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( { popifyModel = { hidden = False }
+    ( { popifyModel = { hidden = True }
       }
     , Cmd.none
     )
@@ -56,13 +58,10 @@ view model =
 
 viewHelper : Model -> Element Msg
 viewHelper model =
-    Element.column []
-        [ Element.el
-            (buttonAttrs
-                ++ [ Element.htmlAttribute (Html.Events.onClick (PopifyMsg Popify.ToggleHidden)) ]
-            )
-            (Element.text <| "Hide Popify")
-        , Element.html (Html.map PopifyMsg (Popify.view model.popifyModel))
+    Element.column
+        [ width fill
+        ]
+        [ Element.map PopifyMsg (Popify.popup model.popifyModel)
         ]
 
 
