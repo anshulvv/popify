@@ -1,7 +1,11 @@
 module Popify exposing (..)
 
 import Browser
+import Element exposing (Element, el)
+import Element.Border as Border
 import Html
+import Popify.Attributes
+import Popify.Msg exposing (Msg)
 
 
 main : Program () Model Msg
@@ -28,14 +32,10 @@ type alias Model =
     }
 
 
-type Msg
-    = ToggleHidden
-
-
 update : Msg -> Model -> ( Model, Cmd msg )
 update msg model =
     case msg of
-        ToggleHidden ->
+        Popify.Msg.ToggleHidden ->
             let
                 newHidden =
                     if model.hidden then
@@ -45,3 +45,13 @@ update msg model =
                         True
             in
             ( { model | hidden = newHidden }, Cmd.none )
+
+
+popup : Model -> Element Msg
+popup model =
+    el Popify.Attributes.popupAttr
+        (el
+            -- Popify.Attributes.popupAttr
+            [ Border.width 2 ]
+            (Element.text <| "Chec")
+        )
