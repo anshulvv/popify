@@ -48,7 +48,7 @@ update msg model =
 
 
 popup : Model -> Element Msg
-popup model =
+popup _ =
     el Popify.Attributes.popupAttr
         (el
             -- Popify.Attributes.popupAttr

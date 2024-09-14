@@ -1,11 +1,8 @@
 module Main exposing (..)
 
 import Browser
-import Element exposing (Attribute, Element, fill, minimum, width)
+import Element exposing (Attribute, Element, fill, width)
 import Element.Background
-import Element.Border
-import Html.Attributes
-import Html.Events
 import Popify
 import Popify.Msg
 
